@@ -1,19 +1,20 @@
 (function() {
   let puzzle = document.getElementById('puzzle');
-  let gameSize = 15; // 8-, 15-, and 24-puzzle styling available (easily expanded to larger games (though they will be essentially impossible))
+  let gameSize = 15; // 8-, 15-, and 24-puzzle styling available (easily expanded to larger games (though they will be unsolvable :) ))
+  let cellOrder = _.shuffle(_.range(1, gameSize + 1));
+  console.log(cellOrder);
   createGame();
 
   function createGame() {
-    for (let i = 1; i <= gameSize + 1; i++) {
+    for (let i = 0; i <= cellOrder.length; i++) {
       let cell = document.createElement('div');
-      if (i <= gameSize) {
-        cell.innerHTML = i;
-        cell.id = i;
+      if (i < gameSize) {
+        cell.innerHTML = cellOrder[i];
       } else {
         cell.innerHTML = "";
-        cell.id = i;
         cell.classList.add('empty');
       }
+      cell.id = i + 1;
       cell.addEventListener('click', (e) => slideCells(e.target.id), false);
       puzzle.appendChild(cell);
     }
@@ -42,12 +43,14 @@
     if (parseInt(empty.id) > selected) {
       swaps.reverse();
     }
+
     swapCells(swaps, empty);
   }
 
   function swapCells(cells, empty) {
     for (let i = 0; i < cells.length; i++) {
       let cell = cells[i];
+
       if (cell.classList.contains('empty')) continue;
 
       let temp = cell.innerHTML;
