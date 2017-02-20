@@ -1,7 +1,7 @@
 (function() {
   let puzzle = document.getElementById('puzzle');
   let gameSize = 15; // 8-, 15-, and 24-puzzle styling available (easily expanded to larger games (though they will be unsolvable :) ))
-  let cellOrder = _.shuffle(_.range(1, gameSize + 1));
+  let cellOrder = _.shuffle(_.range(1, gameSize + 1)); // create shuffled array of values 1 through gameSize
   console.log(cellOrder);
   createGame();
 
@@ -14,6 +14,7 @@
         cell.innerHTML = "";
         cell.classList.add('empty');
       }
+
       cell.id = i + 1;
       cell.addEventListener('click', (e) => slideCells(e.target.id), false);
       puzzle.appendChild(cell);
@@ -21,9 +22,8 @@
   }
 
   function slideCells(selected) {
-    let empty = emptyCell();
-
     let swaps = [];
+    let empty = emptyCell();
     let greater = Math.max(parseInt(selected), parseInt(empty.id));
     let nextCell = Math.min(parseInt(selected), parseInt(empty.id));
 

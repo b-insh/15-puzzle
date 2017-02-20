@@ -11,13 +11,19 @@ body {
   width: 600px;
 }
 
-#puzzle div {
+#puzzle > div {
   display: flex;
   justify-content: center;
   align-items: center;
 
+  background: #c79db4;
+  color: #fff;
+  font-size: 36px;
+  font-family: 'Open Sans', sans-serif;
+
   box-sizing: border-box;
-  border: 1px solid purple;
+  border: 1px solid #926f78;
+  border-radius: 3px;
 
   cursor: pointer;
 }
