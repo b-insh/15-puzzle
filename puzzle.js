@@ -1,17 +1,17 @@
 (function() {
   let puzzle = document.getElementById('puzzle');
-  let gameSize = 15; // 8-, 15-, and 24-puzzle available (easily expanded to larger games (though they will be essentially impossible))
-  createGame(gameSize);
+  let gameSize = 15; // 8-, 15-, and 24-puzzle styling available (easily expanded to larger games (though they will be essentially impossible))
+  createGame();
 
-  function createGame(size) {
-    for (let i = 1; i <= size + 1; i++) {
+  function createGame() {
+    for (let i = 1; i <= gameSize + 1; i++) {
       let cell = document.createElement('div');
-      if (i <= size) {
+      if (i <= gameSize) {
         cell.innerHTML = i;
         cell.id = i;
       } else {
         cell.innerHTML = "";
-        cell.id = 16;
+        cell.id = i;
         cell.classList.add('empty');
       }
       cell.addEventListener('click', (e) => slideCells(e.target.id), false);
@@ -20,7 +20,7 @@
   }
 
   function slideCells(selected) {
-    let empty = document.querySelector('.empty');
+    let empty = emptyCell();
 
     let swaps = [];
     let greater = Math.max(parseInt(selected), parseInt(empty.id));
@@ -56,7 +56,7 @@
       empty.classList.remove("empty");
       empty.innerHTML = temp;
 
-      empty = document.querySelector('.empty');
+      empty = emptyCell();
     }
   }
 
@@ -86,8 +86,8 @@
     return false;
   }
 
-  function emptycell() {
-    return document.querySelector('.empty').id;
+  function emptyCell() {
+    return document.querySelector('.empty');
   }
 
 }());
