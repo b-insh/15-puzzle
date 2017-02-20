@@ -1,0 +1,41 @@
+body {
+  display: flex;
+  justify-content: center;
+}
+
+#puzzle {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+
+  width: 600px;
+}
+
+#puzzle div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  box-sizing: border-box;
+  border: 1px solid purple;
+
+  cursor: pointer;
+}
+
+div:nth-last-child(9):first-child,
+div:nth-last-child(9):first-child ~ div {
+  height: 200px;
+  width: 200px;
+}
+
+div:nth-last-child(16):first-child,
+div:nth-last-child(16):first-child ~ div {
+  height: 150px;
+  width: 150px;
+}
+
+div:nth-last-child(25):first-child,
+div:nth-last-child(25):first-child ~ div {
+  height: 120px;
+  width: 120px;
+}
