@@ -21,31 +21,31 @@
 
   function slideCells(selected) {
     let empty = document.querySelector('.empty');
-    // debugger
+
+    let swaps = [];
+    let greater = Math.max(parseInt(selected), parseInt(empty.id));
+    let nextCell = Math.min(parseInt(selected), parseInt(empty.id));
 
     if (inRow(selected, empty.id)) {
-      let swaps = [];
-        let greater = Math.max(parseInt(selected), parseInt(empty.id));
-        let nextCell = Math.min(parseInt(selected), parseInt(empty.id));
-
-        while (nextCell <= greater) {
-          swaps.push(document.getElementById(nextCell));
-          nextCell += 1;
-        }
-
-        if (empty.id > selected) {
-          swaps.reverse();
-        }
-
-        swapCellsinRow(swaps, empty);
+      while (nextCell <= greater) {
+        swaps.push(document.getElementById(nextCell));
+        nextCell += 1;
+      }
 
     } else if (inColumn(selected, empty.id)) {
-
+      while (nextCell <= greater) {
+        swaps.push(document.getElementById(nextCell));
+        nextCell += Math.sqrt(gameSize + 1);
+      }
     }
+
+    if (parseInt(empty.id) > selected) {
+      swaps.reverse();
+    }
+    swapCells(swaps, empty);
   }
 
-  function swapCellsinRow(cells, empty) {
-    // debugger
+  function swapCells(cells, empty) {
     for (let i = 0; i < cells.length; i++) {
       let cell = cells[i];
       if (cell.classList.contains('empty')) continue;
