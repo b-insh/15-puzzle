@@ -9,30 +9,58 @@
       if (i <= size) {
         cell.innerHTML = i;
         cell.id = i;
-        cell.addEventListener('click', (e) => canMove(e.target.id), false);
       } else {
         cell.innerHTML = "";
         cell.id = 16;
         cell.classList.add('empty');
       }
+      cell.addEventListener('click', (e) => slideCells(e.target.id), false);
       puzzle.appendChild(cell);
     }
   }
 
-  function slideCells() {
+  function slideCells(selected) {
+    let empty = document.querySelector('.empty');
+    // debugger
 
+    if (inRow(selected, empty.id)) {
+      let swaps = [];
+        let greater = Math.max(parseInt(selected), parseInt(empty.id));
+        let nextCell = Math.min(parseInt(selected), parseInt(empty.id));
 
+        while (nextCell <= greater) {
+          swaps.push(document.getElementById(nextCell));
+          nextCell += 1;
+        }
+
+        if (empty.id > selected) {
+          swaps.reverse();
+        }
+
+        swapCellsinRow(swaps, empty);
+
+    } else if (inColumn(selected, empty.id)) {
+
+    }
   }
 
-  function canMove(selectedCell) {
-    console.log(inRow(selectedCell));
-    // if (inRow(selectedCell) || inColumn(selectedCell)) {
-    //   slideCells();
-    // }
+  function swapCellsinRow(cells, empty) {
+    // debugger
+    for (let i = 0; i < cells.length; i++) {
+      let cell = cells[i];
+      if (cell.classList.contains('empty')) continue;
+
+      let temp = cell.innerHTML;
+      cell.innerHTML = "";
+      cell.classList.add("empty");
+      empty.classList.remove("empty");
+      empty.innerHTML = temp;
+
+      empty = document.querySelector('.empty');
+    }
   }
 
-  function inRow(selected) {
-    let empty = document.querySelector('.empty').id;
+  function inRow(selected, empty) {
     if (empty == selected) return false;
 
     let numRows = Math.sqrt(gameSize + 1);
@@ -46,12 +74,16 @@
     return false;
   }
 
-  function inColumn(selected) {
-    let empty = document.querySelector('.empty').id;
+  function inColumn(selected, empty) {
     if (empty == selected) return false;
 
+    let numRows = Math.sqrt(gameSize + 1);
+    let startVal = selected % numRows;
 
-
+    for (let i = startVal; i <= gameSize+ 1; i += numRows) {
+      if (i == empty) return true;
+    }
+    return false;
   }
 
   function emptycell() {
