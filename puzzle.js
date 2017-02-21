@@ -124,7 +124,6 @@
       } else if (parseInt(child.id) !== parseInt(child.innerHTML)) {
         won = false;
       }
-      console.log(won);
     });
     if (won) {
       alert(`Congrats! You won in ${numMoves} moves!`);
