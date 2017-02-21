@@ -56,6 +56,7 @@
     }
 
     swapCells(swaps, empty);
+    checkIsWon();
   }
 
   function swapCells(cells, empty) {
@@ -82,7 +83,6 @@
       numMoves += 1;
       moves.innerHTML = `Moves: ${numMoves}`;
     }
-    checkIsWon();
   }
 
   function inRow(selected, empty) {
