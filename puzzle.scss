@@ -113,3 +113,46 @@ div:nth-last-child(25):first-child ~ div {
 .source, .created {
   font-size: 12px;
 }
+
+.how-to {
+  position: relative;
+
+  font-size: 12px;
+  text-decoration: underline;
+  text-align: center;
+  cursor: pointer;
+
+  &:hover .instructions {
+    opacity: 0.9;
+  }
+}
+
+.instructions {
+  font-size: 12px;
+  text-align: center;
+
+  background: #fff;
+  padding: 3px;
+
+  opacity: 0;
+  width: 200px;
+  margin-right: 10px;
+  border-radius: 6px;
+
+  position: absolute;
+  top: 30px;
+  right: -35px;
+
+  pointer-events: none;
+}
+
+.instructions:after {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent #fff transparent;
+}
