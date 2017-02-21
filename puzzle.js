@@ -56,7 +56,6 @@
     }
 
     swapCells(swaps, empty);
-    checkIsWon();
   }
 
   function swapCells(cells, empty) {
@@ -83,6 +82,7 @@
       numMoves += 1;
       moves.innerHTML = `Moves: ${numMoves}`;
     }
+    checkIsWon();
   }
 
   function inRow(selected, empty) {
@@ -119,11 +119,14 @@
   function checkIsWon() {
     let won = true;
     puzzle.childNodes.forEach(child => {
-      if ((parseInt(child.id) === gameSize + 1) && (!child.classList.contains("empty"))) {
-        won = false;
-      } else if (child.id !== child.innerHTML) {
+      console.log(`${child.id} childid`);
+      console.log(`${child.innerHTML} childhtml`);
+      if (parseInt(child.id) === gameSize + 1) {
+        if (child.innerHTML !== "") won = false;
+      } else if (parseInt(child.id) !== parseInt(child.innerHTML)) {
         won = false;
       }
+      console.log(won);
     });
     if (won) {
       alert(`Congrats! You won in ${numMoves} moves!`);
