@@ -1,6 +1,7 @@
 (function() {
   let puzzle = document.getElementById('puzzle');
-  let gameSize = 15; // 8-, 15-, and 24-puzzle styling available (easily expanded to larger games (though they will be unsolvable :) ))
+  // 8-, 15-, and 24-puzzle styling available
+  let gameSize = 15;
   let sideLength = Math.sqrt(gameSize + 1);
   // create shuffled array of values 1 through gameSize
   let cellOrder = _.shuffle(_.range(1, gameSize + 1));
@@ -30,23 +31,24 @@
   function slideCells(selected) {
     let swaps = [];
     let empty = emptyCell();
-    let greater = Math.max(parseInt(selected), parseInt(empty.id));
-    let nextCell = Math.min(parseInt(selected), parseInt(empty.id));
+    let emptyId = parseInt(empty.id);
+    let greater = Math.max(parseInt(selected), emptyId);
+    let nextCell = Math.min(parseInt(selected), emptyId);
 
-    if (inRow(selected, empty.id)) {
+    if (inRow(selected, emptyId)) {
       while (nextCell <= greater) {
         swaps.push(document.getElementById(nextCell));
         nextCell += 1;
       }
 
-    } else if (inColumn(selected, empty.id)) {
+    } else if (inColumn(selected, emptyId)) {
       while (nextCell <= greater) {
         swaps.push(document.getElementById(nextCell));
         nextCell += sideLength;
       }
     }
-    // if the empty space is "behind" the selected cell, the cells slide 'backward'
-    if (parseInt(empty.id) > selected) {
+    // if the empty space is "behind" the selected cell, the cells must slide 'backward'
+    if (emptyId > selected) {
       swaps.reverse();
     }
 
@@ -62,9 +64,9 @@
       let tempHTML = cell.innerHTML;
       cell.innerHTML = "";
       empty.innerHTML = tempHTML;
-      
+
       let tempClass = cell.classList.contains('light') ? "light" : "dark";
-      cell.classList.remove(cell.classList.contains('light') ? "light" : "dark");
+      cell.classList.remove(tempClass);
       cell.classList.add("empty");
       empty.classList.remove("empty");
       empty.classList.add(tempClass);
@@ -74,7 +76,7 @@
   }
 
   function inRow(selected, empty) {
-    if (empty == selected) return false;
+    if (empty === selected) return false;
 
     let numRows = sideLength;
 
@@ -89,13 +91,13 @@
   }
 
   function inColumn(selected, empty) {
-    if (empty == selected) return false;
+    if (empty === selected) return false;
 
     let numRows = sideLength;
     let startVal = selected % numRows;
-    // checks if the selected cell and empty cell are in the same column, if their cell id's will have a difference of some multiple of the row length
+    // checks if the selected cell and empty cell are in the same column, if so their cell ids will have a difference of some multiple of the row length
     for (let i = startVal; i <= gameSize+ 1; i += numRows) {
-      if (i == empty) return true;
+      if (i === empty) return true;
     }
     return false;
   }

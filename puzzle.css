@@ -21,6 +21,7 @@ body {
   font-family: 'Open Sans', sans-serif;
 
   box-sizing: border-box;
+  box-shadow: inset 8px 10px 6px -6px #8b7f89;
   border: 1px solid #634141;
   border-radius: 3px;
 
