@@ -2,7 +2,7 @@
   let puzzle = document.getElementById('puzzle');
   let moves = document.getElementById('moves');
   // 8-, 15-, and 24-puzzle styling available
-  let gameSize = 8;
+  let gameSize = 15;
   let sideLength = Math.sqrt(gameSize + 1);
   let numMoves = 0;
   document.getElementById('shuffle').addEventListener('click', shuffleBoard, false);
