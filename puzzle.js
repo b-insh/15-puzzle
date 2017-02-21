@@ -119,8 +119,6 @@
   function checkIsWon() {
     let won = true;
     puzzle.childNodes.forEach(child => {
-      console.log(`${child.id} childid`);
-      console.log(`${child.innerHTML} childhtml`);
       if (parseInt(child.id) === gameSize + 1) {
         if (child.innerHTML !== "") won = false;
       } else if (parseInt(child.id) !== parseInt(child.innerHTML)) {
