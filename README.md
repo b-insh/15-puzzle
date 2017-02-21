@@ -19,8 +19,10 @@ I really like CSS and doing pretty and fun things with it. I wanted to keep page
 
 ### Future Features
 
-1. Inclusion of drop down menu that allows user to choose what size game they would like to play.
+1. Have a nice modal pop up when the puzzle is solved rather than an alert.
 
-2. Allow users to choose different themes or images for the cells. When solved the cells would display a full image or pattern.
+2. Inclusion of drop down menu that allows user to choose what size game they would like to play.
 
-3. Only allow solvable arrangements to be displayed.
+3. Allow users to choose different themes or images for the cells. When solved the cells would display a full image or pattern.
+
+4. Only allow solvable arrangements to be displayed.
