@@ -73,7 +73,6 @@ div:nth-last-child(25):first-child ~ div {
 .how-to {
   position: relative;
   font-size: 12px;
-  text-decoration: underline;
   text-align: center;
   cursor: pointer; }
   .how-to:hover .instructions {
