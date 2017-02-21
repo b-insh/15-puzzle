@@ -25,6 +25,10 @@ body {
   color: $textColor;
 }
 
+header {
+  font-size: 36px;
+}
+
 #puzzle {
   display: flex;
   justify-content: center;
