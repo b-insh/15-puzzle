@@ -64,7 +64,7 @@ div:nth-last-child(25):first-child ~ div {
   #shuffle:active {
     background: #247985; }
 
-#source, .created {
+.source, .created {
   font-size: 12px; }
 
 /*# sourceMappingURL=puzzle.css.map */
