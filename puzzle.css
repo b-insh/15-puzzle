@@ -16,16 +16,23 @@ body {
   justify-content: center;
   align-items: center;
 
-  background: #c79db4;
   color: #fff;
   font-size: 36px;
   font-family: 'Open Sans', sans-serif;
 
   box-sizing: border-box;
-  border: 1px solid #926f78;
+  border: 1px solid #634141;
   border-radius: 3px;
 
   cursor: pointer;
+}
+
+.light {
+  background: #9dadb6;
+}
+
+.dark {
+  background: #926f78;
 }
 
 div:nth-last-child(9):first-child,
