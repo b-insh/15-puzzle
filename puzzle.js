@@ -79,10 +79,8 @@
   function inRow(selected, empty) {
     if (empty === selected) return false;
 
-    let numRows = sideLength;
-
-    for (let row = numRows; row <= gameSize + 1; row += numRows) {
-      let rowBeginning = row - numRows + 1;
+    for (let row = sideLength; row <= gameSize + 1; row += sideLength) {
+      let rowBeginning = row - sideLength + 1;
       // checks if the selected cell and empty cell are in the same row
         if ((rowBeginning <= selected && selected <= row) && (rowBeginning <= empty && empty <= row )) {
           return true;
@@ -94,10 +92,9 @@
   function inColumn(selected, empty) {
     if (empty === selected) return false;
 
-    let numRows = sideLength;
-    let startVal = selected % numRows;
+    let startVal = selected % sideLength;
     // checks if the selected cell and empty cell are in the same column, if so their cell ids will have a difference of some multiple of the row length
-    for (let i = startVal; i <= gameSize+ 1; i += numRows) {
+    for (let i = startVal; i <= gameSize+ 1; i += sideLength) {
       if (i === empty) return true;
     }
     return false;
