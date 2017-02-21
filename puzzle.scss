@@ -1,0 +1,102 @@
+$dark: #926f78;
+$darkHover: #a78b93;
+$shuffle: #247985;
+$shuffleHover: #398691;
+$light: #9dadb6;
+$lightHover: #b0bdc4;
+
+$boardWidth: 600px;
+
+@mixin boxshadow($shadowColor) {
+  box-shadow: inset 8px 10px 6px -6px $shadowColor;
+}
+
+body {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: column;
+
+  height: 800px;
+
+  font-family: 'Open Sans', sans-serif;
+  color: #fff;
+}
+
+#puzzle {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+
+  width: $boardWidth;
+}
+
+#puzzle > div {
+  @include boxshadow(#8b7f89);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  box-sizing: border-box;
+  border: 1px solid #634141;
+  border-radius: 3px;
+
+  font-size: 36px;
+
+  cursor: pointer;
+}
+
+.light {
+  background: $light;
+
+  &:hover {
+    background: $lightHover;
+  }
+}
+
+.dark {
+  background: $dark;
+
+  &:hover {
+    background: $darkHover;
+  }
+}
+
+div:nth-last-child(9):first-child,
+div:nth-last-child(9):first-child ~ div {
+  height: $boardWidth / 3;
+  width: $boardWidth / 3;
+}
+
+div:nth-last-child(16):first-child,
+div:nth-last-child(16):first-child ~ div {
+  height: $boardWidth / 4;
+  width: $boardWidth / 4;
+}
+
+div:nth-last-child(25):first-child,
+div:nth-last-child(25):first-child ~ div {
+  height: $boardWidth / 5;
+  width: $boardWidth / 5;
+}
+
+#shuffle {
+  @include boxshadow(#606574);
+
+  background: $shuffle;
+  border-radius: 3px;
+  padding: 10px 30px;
+
+  font-size: 24px;
+
+  cursor: pointer;
+
+  &:hover {
+    background: #398691;
+  }
+
+  &:active{
+    background: $shuffle;
+  }
+}

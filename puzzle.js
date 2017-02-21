@@ -47,7 +47,7 @@
         nextCell += sideLength;
       }
     }
-    // if the empty space is "behind" the selected cell, the cells must slide 'backward'
+    // if the empty space is ahead of the selected cell, the cells must slide "forward"
     if (emptyId > selected) {
       swaps.reverse();
     }

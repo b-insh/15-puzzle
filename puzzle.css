@@ -1,55 +1,64 @@
 body {
   display: flex;
-  justify-content: center;
-}
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: column;
+  height: 800px;
+  font-family: 'Open Sans', sans-serif;
+  color: #fff; }
 
 #puzzle {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-
-  width: 600px;
-}
+  width: 600px; }
 
 #puzzle > div {
+  box-shadow: inset 8px 10px 6px -6px #8b7f89;
   display: flex;
   justify-content: center;
   align-items: center;
-
-  color: #fff;
-  font-size: 36px;
-  font-family: 'Open Sans', sans-serif;
-
   box-sizing: border-box;
-  box-shadow: inset 8px 10px 6px -6px #8b7f89;
   border: 1px solid #634141;
   border-radius: 3px;
-
-  cursor: pointer;
-}
+  font-size: 36px;
+  cursor: pointer; }
 
 .light {
-  background: #9dadb6;
-}
+  background: #9dadb6; }
+  .light:hover {
+    background: #b0bdc4; }
 
 .dark {
-  background: #926f78;
-}
+  background: #926f78; }
+  .dark:hover {
+    background: #a78b93; }
 
 div:nth-last-child(9):first-child,
 div:nth-last-child(9):first-child ~ div {
   height: 200px;
-  width: 200px;
-}
+  width: 200px; }
 
 div:nth-last-child(16):first-child,
 div:nth-last-child(16):first-child ~ div {
   height: 150px;
-  width: 150px;
-}
+  width: 150px; }
 
 div:nth-last-child(25):first-child,
 div:nth-last-child(25):first-child ~ div {
   height: 120px;
-  width: 120px;
-}
+  width: 120px; }
+
+#shuffle {
+  box-shadow: inset 8px 10px 6px -6px #606574;
+  background: #247985;
+  border-radius: 3px;
+  padding: 10px 30px;
+  font-size: 24px;
+  cursor: pointer; }
+  #shuffle:hover {
+    background: #398691; }
+  #shuffle:active {
+    background: #247985; }
+
+/*# sourceMappingURL=puzzle.css.map */
