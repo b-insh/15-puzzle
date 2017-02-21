@@ -2,7 +2,7 @@
   let puzzle = document.getElementById('puzzle');
   let moves = document.getElementById('moves');
   // 8-, 15-, and 24-puzzle styling available
-  let gameSize = 15;
+  let gameSize = 8;
   let sideLength = Math.sqrt(gameSize + 1);
   let numMoves = 0;
   document.getElementById('shuffle').addEventListener('click', shuffleBoard, false);
@@ -56,6 +56,7 @@
     }
 
     swapCells(swaps, empty);
+    checkIsWon();
   }
 
   function swapCells(cells, empty) {
@@ -76,6 +77,7 @@
 
       empty = emptyCell();
     }
+
     // only increase numMoves if the cell clicked is not the empty cell
     if (cells.length > 1) {
       numMoves += 1;
@@ -109,8 +111,24 @@
 
   function shuffleBoard() {
     puzzle.innerHTML = "";
-    moves.innerHTML = "0 moves";
+    numMoves = 0;
+    moves.innerHTML = "Moves: 0";
     createBoard();
+  }
+
+  function checkIsWon() {
+    let won = true;
+    puzzle.childNodes.forEach(child => {
+      if ((parseInt(child.id) === gameSize + 1) && (!child.classList.contains("empty"))) {
+        won = false;
+      } else if (child.id !== child.innerHTML) {
+        won = false;
+      }
+    });
+    if (won) {
+      alert(`Congrats! You won in ${numMoves} moves!`);
+      shuffleBoard();
+    }
   }
 
   function emptyCell() {
