@@ -4,6 +4,8 @@ $shuffle: #247985;
 $shuffleHover: #398691;
 $light: #9dadb6;
 $lightHover: #b0bdc4;
+$border: #634141;
+$textColor: #003366;
 
 $boardWidth: 600px;
 
@@ -20,7 +22,7 @@ body {
   height: 800px;
 
   font-family: 'Open Sans', sans-serif;
-  color: #fff;
+  color: $textColor;
 }
 
 #puzzle {
@@ -39,10 +41,11 @@ body {
   align-items: center;
 
   box-sizing: border-box;
-  border: 1px solid #634141;
+  border: 1px solid $border;
   border-radius: 3px;
 
   font-size: 36px;
+  color: #fff;
 
   cursor: pointer;
 }
@@ -89,14 +92,20 @@ div:nth-last-child(25):first-child ~ div {
   padding: 10px 30px;
 
   font-size: 24px;
+  text-align: center;
+  color: #fff;
 
   cursor: pointer;
 
   &:hover {
-    background: #398691;
+    background: $shuffleHover;
   }
 
   &:active{
     background: $shuffle;
   }
+}
+
+#source, .created {
+  font-size: 12px;
 }

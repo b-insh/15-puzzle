@@ -3,14 +3,15 @@
   // 8-, 15-, and 24-puzzle styling available
   let gameSize = 15;
   let sideLength = Math.sqrt(gameSize + 1);
-  // create shuffled array of values 1 through gameSize
-  let cellOrder = _.shuffle(_.range(1, gameSize + 1));
+  document.getElementById('shuffle').addEventListener('click', shuffleBoard, false);
   createBoard();
 
   function createBoard() {
     let j = 0;
+    // create shuffled array of values 1 through gameSize
+    let cellOrder = _.shuffle(_.range(1, gameSize + 1));
     for (let i = 0; i <= cellOrder.length; i++) {
-      // only increases j if the rows are an even length, otherwise don't need to switch colors on row change
+      // only increases j if the rows are an even length
       if (i % sideLength === 0 && sideLength % 2 === 0) j += 1;
 
       let cell = document.createElement('div');
@@ -100,6 +101,11 @@
       if (i === empty) return true;
     }
     return false;
+  }
+
+  function shuffleBoard() {
+    puzzle.innerHTML = "";
+    createBoard();
   }
 
   function emptyCell() {

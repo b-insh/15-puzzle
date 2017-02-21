@@ -5,7 +5,7 @@ body {
   flex-direction: column;
   height: 800px;
   font-family: 'Open Sans', sans-serif;
-  color: #fff; }
+  color: #003366; }
 
 #puzzle {
   display: flex;
@@ -22,6 +22,7 @@ body {
   border: 1px solid #634141;
   border-radius: 3px;
   font-size: 36px;
+  color: #fff;
   cursor: pointer; }
 
 .light {
@@ -55,10 +56,15 @@ div:nth-last-child(25):first-child ~ div {
   border-radius: 3px;
   padding: 10px 30px;
   font-size: 24px;
+  text-align: center;
+  color: #fff;
   cursor: pointer; }
   #shuffle:hover {
     background: #398691; }
   #shuffle:active {
     background: #247985; }
+
+#source, .created {
+  font-size: 12px; }
 
 /*# sourceMappingURL=puzzle.css.map */
