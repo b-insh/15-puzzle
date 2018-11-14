@@ -1,6 +1,6 @@
 # 15-puzzle
 
-[Play it here! ](http://bethanyhyland.me/15-puzzle/)
+[Play it here! ](https://b-insh.github.io/15-puzzle/)
 
 15-puzzle is a sliding puzzle that consists of a frame of numbered square tiles in random order with one tile missing. The goal of the game is to get all the tiles ordered from 1 through the highest number from left to right, up to down.
 
